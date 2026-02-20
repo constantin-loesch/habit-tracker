@@ -10,7 +10,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #000; --card: #0d0d0d; --border: #1e1e1e; --border-h: #3a3a3a;
-      --text: #fff; --muted: #555; --dim: #222;
+      --text: #fff; --muted: #fff; --dim: #222;
     }
     html, body {
       height: 100%; background: var(--bg); color: var(--text);
@@ -253,7 +253,7 @@
     responsive: true, maintainAspectRatio: false,
     plugins: { legend: { display: false }, tooltip: {
       backgroundColor: '#111', borderColor: '#2a2a2a', borderWidth: 1,
-      titleColor: '#fff', bodyColor: '#666',
+      titleColor: '#fff', bodyColor: '#fff',
       titleFont: { family: 'DM Mono', size: 11 },
       bodyFont:  { family: 'DM Mono', size: 11 }
     }},
@@ -323,7 +323,7 @@
         ...CHART_DEFAULTS,
         plugins: { ...CHART_DEFAULTS.plugins, tooltip: { ...CHART_DEFAULTS.plugins.tooltip, callbacks: { label: c => ` ${c.raw}% abgeschlossen` } } },
         scales: {
-          x: { grid: { color: '#0d0d0d' }, ticks: { color: '#444', font: { family:'DM Mono', size:10 } } },
+          x: { grid: { color: '#0d0d0d' }, ticks: { color: '#fff', font: { family:'DM Mono', size:10 } } },
           y: { min:0, max:100, grid: { color:'#0d0d0d' }, ticks: { color:'#444', font:{family:'DM Mono',size:10}, callback: v=>v+'%', maxTicksLimit:5 } }
         }
       }
@@ -381,7 +381,7 @@
     buildWeekChart();
     const list = document.getElementById('habitsList');
     if (!habits.length) {
-      list.innerHTML=`<div class="empty-state"><div class="empty-big">0</div><p>Noch keine Habits.</p><p style="color:#222;margin-top:6px">Füge deinen ersten Habit hinzu.</p></div>`;
+      list.innerHTML=`<div class="empty-state"><div class="empty-big">0</div><p>Noch keine Habits.</p><p style="color:#fff;margin-top:6px">Füge deinen ersten Habit hinzu.</p></div>`;
       return;
     }
     list.innerHTML = habits.map(h => {
